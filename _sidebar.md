@@ -1,2 +1,8 @@
 - [Quick Start](quickstart.md)
 - [Full Guide](intro.md)
+- [Sounds & Modulators](devices.md)
+- [Sequencers](sequencers.md)
+- [The Board & Routing](board.md)
+- [Effects & Mixing](effects.md)
+- [Kits & Settings](kits-settings.md)
+- [MIDI](midi.md)

@@ -4,11 +4,13 @@ Morph is a music app where you move sliders — called **faders** — to control
 
 Here's how to make something in five minutes.
 
+![Morph playing a kit](images/stage-playing.png)
+
 ---
 
 ## 1. Load a kit and press Play
 
-Tap the kit name at the top of the screen and pick any factory kit from the list. Then tap **Play**.
+Tap the **Kits button** (the list icon in the top-right corner) to open the kit browser, and pick any factory kit. Then tap **Play** (bottom-right corner).
 
 You should hear something immediately — most kits start with sequencers running. The faders on screen will begin moving on their own, playing back pre-recorded patterns.
 
@@ -20,17 +22,19 @@ You don't need to know what each fader does to start experimenting. Move things 
 
 ## 3. Record a movement
 
-Tap **REC** to activate it (it latches — no need to hold). Now touch and move a fader. Morph records everything you do. Tap REC again to stop.
+Tap **REC** (the circle button at the bottom-left) to activate it — it latches, no need to hold. Now touch and move a fader. Morph records everything you do. Tap REC again to stop.
 
 On the next loop, Morph plays your movement back exactly as you made it. Tap REC again and record something on a different fader. Movements stack.
 
 ## 4. Clear a fader
 
-Tap **CLEAR**, then touch any fader to erase its recorded movement. The fader holds its current position. Tap CLEAR again when you're done.
+Tap **CLEAR** (the ⊗ button), then touch any fader to erase its recorded movement. The fader holds its current position. Tap CLEAR again when you're done.
 
 ## 5. Switch scenes
 
 The row of buttons at the bottom are **scenes** — each one is a different snapshot of fader positions and recordings. Tap a scene to switch. Tap **`+`** to duplicate the current scene and start building a variation.
+
+![Scene strip with a queued scene switch](images/scene-strip.png)
 
 This is how you create arrangement: different scenes for different parts of the track, switching between them live.
 
@@ -38,7 +42,13 @@ This is how you create arrangement: different scenes for different parts of the 
 
 ## Save your work
 
-Tap the kit name → **Save** to save. If you want to keep the factory kit intact, choose **Save As** to create your own copy.
+Open the **Kits** screen (list icon, top right). Your current kit is highlighted — tap **Save As** to save your own copy. Factory kits stay untouched; your version lands in **My Kits**.
+
+---
+
+## Built-in tutorial
+
+Morph ships with a short interactive walkthrough: open the Kits screen and tap **How to Play** in the top-right. Seven cards cover everything on this page with animations.
 
 ---
 
@@ -46,12 +56,12 @@ Tap the kit name → **Save** to save. If you want to keep the factory kit intac
 
 Morph has a lot more under the hood. Once you're comfortable with the basics:
 
-- **Pages** — organize faders across multiple named tabs
-- **HOLD** — move a fader without committing its position
+- **Pages** — organize faders across multiple named tabs ([Full Guide](intro.md))
+- **HOLD** — audition fader moves without committing them
 - **Time Jump** — retroactively capture a movement you liked but didn't record
 - **Freeze** — pause all fader motion while the audio keeps playing
-- **The Board** — a full signal-flow view where you can see and rewire how sequencers, synths, effects, and modulators connect to each other
-- **Modulators** — LFOs and envelopes that move faders automatically
-- **Fader types** — XY pads, range faders, multi-section faders for more expressive control
+- **The Board** — a full signal-flow view where you can see and rewire how sequencers, synths, effects, and modulators connect ([The Board & Routing](board.md))
+- **Modulators** — LFOs and envelopes that move faders automatically ([Sounds & Modulators](devices.md))
+- **Sequencers** — Euclidean rhythms, generative melodies, and a full chord progression engine ([Sequencers](sequencers.md))
 
-The full introduction document covers all of these in detail.
+The [Full Guide](intro.md) covers the performance surface in detail.

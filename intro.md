@@ -1,62 +1,75 @@
-# Morph: A Quick Introduction
+# Morph: The Full Guide
 
 Morph is a music-making app built around one idea: **record your hands, play them back**. You move faders, Morph remembers the movements, and they loop in time. Stack layers, build patterns, shape sounds — all by touch.
 
-This guide walks through the core concepts in order, from "how do I make sound" to "how do I wire everything together."
+This guide walks through the performance screen in order, from "how do I make sound" to "how do I wire everything together." For the deeper layers — devices, sequencers, routing — see the dedicated pages in the sidebar.
+
+![The Morph performance screen](images/stage-overview.png)
 
 ---
 
-## Opening and Saving Kits
+## The Screen at a Glance
 
-A **kit** is a complete snapshot of everything in Morph — sounds, fader layouts, pages, patterns, scenes. Kits are saved as `.morph` files.
+- **Top:** page tabs (your fader pages), plus fixed **FX** and **Mixer** tabs on the right
+- **Top-right rail:** Kits browser, Board view, Edit mode buttons
+- **Left rail:** loop-length buttons (top), then Time Jump, Freeze, HOLD, CLEAR, REC
+- **Bottom-right:** tempo button (shows current BPM) and Play
+- **Center:** the fader grid
+- **Below the faders:** the step indicator (one dot per 16th-note step)
+- **Bottom:** the scene strip
 
-When you first open Morph, a default kit is already loaded. The current kit name appears near the top of the screen. An asterisk (`*`) next to the name means you have unsaved changes.
+---
 
-- **To save:** tap the kit name → Save
-- **To load a different kit:** tap the kit name → browse factory or user kits
-- **To start fresh:** tap the kit name → New Kit
+## Kits
 
-Factory kits are read-only — saving them creates a copy in your user library.
+A **kit** is a complete snapshot of everything in Morph — sounds, fader layouts, pages, patterns, scenes. Loading a kit gives you a whole new instrument.
 
-> 📸 *[Screenshot: Kit name button with asterisk, save menu open]*
+Tap the **Kits button** (list icon, top-right) to open the kit browser. From there you can search, filter by **Factory** or **My Kits**, and tap any kit to load it. Your current kit shows an orange **edited** dot when it has unsaved changes, along with **Save** / **Save As** buttons.
+
+Factory kits are read-only — saving one creates your own copy in My Kits.
+
+See [Kits & Settings](kits-settings.md) for the full tour, including import/export.
 
 ---
 
 ## Transport and BPM
 
-The **Play** button starts and stops the clock. When the transport is running, sequencers fire, motion recordings play back, and everything moves in sync.
+The **Play** button (bottom-right) starts and stops the clock. When the transport is running, sequencers fire, motion recordings play back, and everything moves in sync.
 
-The **BPM button** (showing the current tempo, e.g. `120 BPM`) opens a dialog where you can set:
-- **Tempo** — beats per minute
-- **Swing** — shifts off-beat 16ths late for a groove
+The **tempo button** next to it shows the current BPM. Tap it to open the tempo dialog:
 
-Morph runs at 192 PPQN internally, so timing is extremely precise.
+![BPM dialog](images/bpm-dialog.png)
 
-> 📸 *[Screenshot: Play button and BPM button in header]*
+- **BPM slider** — set the tempo directly
+- **TAP** — tap in time to set the tempo
+- **Swing** — 50% is straight; up to 75% shifts off-beat 16ths late for groove
+
+When Morph runs as a plugin inside a DAW, tempo syncs to the host. Internally Morph runs at 192 PPQN, so timing is precise down to tiny fractions of a beat.
 
 ---
 
 ## Faders: Your Main Control Surface
 
-Faders are the vertical sliders that fill the main screen. Each one is mapped to a parameter — a synth's filter cutoff, reverb amount, pitch, whatever the kit designer chose.
+Faders are the vertical sliders that fill the main screen. Each one is mapped to a parameter — a synth's filter cutoff, a sequencer's density, a reverb amount, whatever the kit designer chose. Many faders are split into labeled **zones** (like "Off / Half / Four / Drive" on a kick fader) so one slider can move through distinct behaviors.
 
 **Drag a fader up or down to change its value.** That's it.
 
-A thin dashed white line on each fader marks its **saved position** — the value it will snap back to when you press play. This is your reference point.
+A thin dashed white line on each fader marks its **saved position** — the value it returns to when motion playback has nothing recorded. This is your reference point.
 
-Morph also shows small colored dots to the left of the fader label:
-- **Green dot** — this fader has a recorded motion
-- **Camera icon** — a Time Jump gesture is waiting in the buffer
+Small icons in a fader's header tell you its state:
 
-> 📸 *[Screenshot: Fader grid with saved position notch visible]*
+- **Green dot** — this fader has a recorded motion loop
+- **Camera icon** — a Time Jump gesture is waiting in the buffer (see below)
 
 ---
 
 ## REC, HOLD, CLEAR
 
-These three buttons modify what touching a fader does. By default they work in **Latch** mode: tap once to activate, tap again to deactivate — no need to hold.
+These three buttons on the left rail change what touching a fader does. By default they work in **Latch** mode: tap once to activate, tap again to deactivate — no need to hold.
 
-> A note on **Momentary mode**: if you switch a button to Momentary, it's only active while you physically hold it. To latch it manually in Momentary mode, press the button and drag your finger away before releasing.
+![Transport rail: halve/double, Time Jump, Freeze, HOLD, CLEAR, REC](images/transport-rail.png)
+
+> The rail from top to bottom: **halve loop** (orange collapse arrows), **double loop** (green expand arrows), **Time Jump** (camera shutter), **Freeze** (snowflake), **HOLD** (hand), **CLEAR** (⊗), **REC** (circle).
 
 Moving a fader normally updates its saved position — the fader stays wherever you leave it, like a physical knob you turn and leave alone.
 
@@ -64,7 +77,9 @@ Moving a fader normally updates its saved position — the fader stays wherever 
 
 Activate **REC**, then touch faders. Every movement is recorded into the loop in real time. Deactivate REC to stop recording.
 
-The recording loops in sync with the transport. The next time through, Morph plays back exactly what you did.
+![Recording a fader movement](images/rec-recording.png)
+
+The recording loops in sync with the transport. The next time through, Morph plays back exactly what you did. Faders with recordings get a green dot, and the step indicator fills in where your movements landed.
 
 ### CLEAR — Erase a fader's recording
 
@@ -74,39 +89,32 @@ Activate **CLEAR**, then tap or drag a fader. Its motion recording is erased and
 
 Activate **HOLD** to temporarily suspend position saving. While HOLD is on, moving a fader does not update its saved position — useful for auditioning a value without locking it in. Deactivate HOLD and the fader snaps back to its last saved position.
 
-> There is an alternative **Play mode** (switchable in settings) where the default behavior is reversed: faders spring back to their saved position on release, and HOLD is used to commit a new position. Play mode is designed for live performance — push a fader for emphasis, let go to return. Factory kits use Build mode, so you won't encounter this unless you switch it.
+> **Two control schemes.** The Settings screen has a **Fader Control** switch with two modes. **Build** (the default, described above): faders stay where you put them, HOLD is the temporary exception. **Play**: the reverse — faders spring back to their saved position when you let go, and HOLD commits a new position. Play mode is designed for live performance: push a fader for emphasis, release to return.
 
-> 📸 *[Screenshot: REC/HOLD/CLEAR buttons]*
+> **Momentary mode.** The **Button Mode** setting switches REC/HOLD/CLEAR from Latch to Momentary — active only while physically held. To latch a button in Momentary mode, press it and drag your finger away before releasing.
 
 ---
 
 ## The Step Indicator
 
-The **step indicator** is the row of small dots between the fader grid and the scene controls. Each dot represents one 16th-note step in the current loop.
+The **step indicator** is the row of small dots between the fader grid and the scene strip. Each dot is one 16th-note step of the loop.
 
 - **Filled dot** — at least one fader has a recorded movement at this step
 - **Empty dot** — nothing recorded here
 - **Highlighted dot** — the current playback position
 
-This gives you a bird's-eye view of where your recordings are. A sparse indicator means a spacious pattern; a dense one means lots of activity.
-
-> 📸 *[Screenshot: Step indicator with mix of filled/empty dots, playback position highlighted]*
+This gives you a bird's-eye view of where your recordings live. Sparse dots mean a spacious pattern; dense dots mean lots of activity.
 
 ---
 
-## Extending and Shrinking Recordings
+## Extending and Shrinking the Loop
 
-The **`:2`** and **`*2`** buttons change the length of the loop.
+The two buttons at the top of the left rail change the loop length:
 
-- **`:2` (Halve)** — cuts the loop in half. Data beyond the new endpoint is discarded.
-- **`*2` (Double) — short press** — doubles the loop length. Existing data stays; new space is empty.
-- **`*2` (Double) — long press** — doubles the loop length and clears any old data that was there before.
+- **Halve** (orange collapse arrows) — cuts the loop in half. Data beyond the new endpoint is discarded.
+- **Double** (green expand arrows) — short press doubles the loop length, keeping existing data and adding empty space. **Long press** doubles the loop and clears the newly exposed half.
 
-Use these to quickly change the feel of a loop: halving creates tight, repetitive patterns; doubling gives you room to build a longer arc.
-
-The loop length is always measured in musical steps (8, 16, 32, or 64 sixteenth-notes).
-
-> 📸 *[Screenshot: :2 and *2 buttons]*
+Use these to change the feel fast: halving creates tight, repetitive patterns; doubling gives you room to build a longer arc. Loop length is measured in 16th-note steps (8, 16, 32, or 64).
 
 ---
 
@@ -114,23 +122,25 @@ The loop length is always measured in musical steps (8, 16, 32, or 64 sixteenth-
 
 These two buttons give you precise control over motion playback.
 
-### Freeze (Stop Motion)
+### Freeze
 
-**Freeze** pauses all motion playback without stopping the transport. Sequencers and audio keep running, but faders freeze in place. Tap again to resume.
+**Freeze** (snowflake) pauses all motion playback without stopping the transport. Sequencers and audio keep running, but faders hold still. Tap again to resume.
 
-This is useful when you want the music to keep going but hold a moment — like a DJ holding a filter position while the beat plays on.
+![Freeze active](images/freeze-active.png)
+
+It's the DJ move: hold a filter where it is while the beat plays on. **Long-press while frozen** to commit the frozen values as the new saved positions.
 
 ### Time Jump
 
-**Time Jump** is a retroactive capture. Morph is always silently recording your fader movements into a short buffer in the background. Tap the Time Jump button and Morph reaches back in time and commits your last gesture into the loop — as if you'd hit REC just before you started moving.
+**Time Jump** (camera shutter icon) is retroactive capture. Morph is always silently recording your fader movements into a short background buffer. Tap Time Jump and Morph reaches back in time and commits your last gesture into the loop — as if you'd hit REC just before you started moving.
 
-The button glows when there's a capturable gesture waiting.
+The button glows cyan when there's a capturable gesture waiting, and faders with pending gestures show a small camera icon in their header.
+
+![Time Jump armed after a manual fader move](images/timejump-armed.png)
 
 **Long-press Time Jump** to undo the last capture.
 
-This is one of Morph's most powerful features for live performance: play freely, then keep the moments you liked.
-
-> 📸 *[Screenshot: Freeze button and Time Jump button with availability glow]*
+This is one of Morph's most powerful performance features: play freely, then keep the moments you liked.
 
 ---
 
@@ -138,167 +148,136 @@ This is one of Morph's most powerful features for live performance: play freely,
 
 A **scene** is a snapshot of all your fader positions and motion recordings. Switching scenes swaps the entire state of the fader grid in one move — different positions, different recorded movements — while the sounds, routing, and device settings stay the same.
 
-Think of scenes as variations or sections of a track: intro, verse, chorus, breakdown. Each has its own feel; switching between them live is how you create arrangement on the fly.
+Think of scenes as sections of a track: intro, build, drop, breakdown. Switching between them live is how you create arrangement on the fly.
 
-The **scene strip** runs along the bottom of the main screen. The active scene is highlighted. Scroll horizontally if you have more than seven scenes.
+The **scene strip** runs along the bottom of the screen. The active scene is highlighted; scroll horizontally if you have more than fit on screen.
+
+![A queued scene switch — the target scene glows cyan](images/scene-queued.png)
 
 ### Adding a scene
 
-Tap the **`+`** button at the end of the scene strip. Morph duplicates the current scene — copying all saved fader positions and motion recordings — and switches to the new copy. From there you can record different movements to make it its own thing.
+Tap **`+`** at the end of the scene strip. Morph duplicates the current scene — copying all saved fader positions and motion recordings — and switches to it. From there, record different movements to make it its own thing.
 
 ### Switching scenes
 
-Tap any scene button to switch to it. By default the switch is immediate. If you've set a quantization mode (see below), the switch is deferred and the target scene button pulses with a cyan glow and shows **"Queued"** until the boundary arrives.
+Tap any scene button to switch. While the transport is stopped, the switch is instant. While playing, the switch lands on the next musical boundary set by the **Scene Switch** setting — the queued scene glows cyan until the boundary arrives:
 
-### Deleting and renaming scenes
-
-Tap the **edit button** (pencil icon, glows orange when active) to enter edit mode. In edit mode:
-- A **delete button** appears on each scene — tap it to remove that scene. You can't delete the last remaining scene.
-- **Long-press** a scene button to rename it.
-- **Long-press and drag** a scene button to reorder it.
-
-Tap the edit button again to exit edit mode.
-
-> 📸 *[Screenshot: Scene strip with multiple scenes, active scene highlighted, edit mode with delete buttons visible]*
-
-### Scene switch quantization
-
-By default, scene switches happen immediately. To snap switches to a musical boundary, open the **Kit screen** (tap the kit name) and find the **Scene Switch** setting:
-
-| Option | When the switch happens |
+| Scene Switch setting | When the switch lands |
 |--------|------------------------|
-| Immediate | Right now |
+| Next 16th | Next 16th note (feels immediate) |
 | Next Beat | Next quarter note |
-| Next Bar | Next 4-beat bar |
+| Next Bar | Next bar line |
 | Next 2 Bars | Next 2-bar boundary |
 | Next 4 Bars | Next 4-bar boundary |
-| End of Pattern | End of the current loop length |
+| End of Pattern | When the current loop wraps around |
 
-With any quantized mode, you can queue a switch mid-loop and it will land cleanly on the beat. The queued scene button pulses until the switch fires.
+You'll find the setting on the [Kits & Settings](kits-settings.md) screen. With longer quantization you can queue a switch early and let it land exactly on the drop.
 
-> 📸 *[Screenshot: Kit screen showing Scene Switch dropdown set to "Next Bar"]*
+### Editing scenes
+
+Tap the **Edit button** (pencil, top-right rail — glows orange when active). In edit mode:
+
+- A **delete button** appears on each scene. You can't delete the last one.
+- **Long-press** a scene to rename it.
+- **Drag** a scene to reorder it.
+
+Tap the pencil again to exit.
 
 ---
 
 ## Pages of Faders
 
-A **page** is a named group of faders. Instead of fitting every fader on one screen, you can organize them across multiple pages — "Drums", "Bass", "FX", and so on.
+A **page** is a named group of faders. Instead of cramming every fader onto one screen, kits organize them across pages — "Drums", "Bass", "Sound", "Perform", and so on.
 
-Tabs at the top of the screen show all your pages. Tap a tab to switch. On iOS, swipe left and right to navigate.
+Tabs at the top of the screen switch pages (on iOS you can also swipe left/right). Two special tabs sit on the right:
 
-Two special tabs are always present:
-- **Mixer** — 8 XY faders for volume and pan of each synth slot
-- **FX** — faders for global effects (filter, tape, reverb, delay, etc.)
+- **Mixer** — always present: 8 channel strips (one per synth) plus a master strip. Each strip is an XY fader — vertical for volume, horizontal for pan — with live level meters.
+- **FX** — appears when the kit has a page named "FX": faders for the global effects (delay, reverb, pump, tape, and the DJ filter).
 
-Not every factory kit uses multiple pages — some are designed to fit on one screen.
+![The Mixer page](images/mixer-page.png)
 
-> 📸 *[Screenshot: Page tabs at top, multiple pages visible]*
+See [Effects & Mixing](effects.md) for what the FX faders do.
 
 ---
 
 ## Fader Types
 
-Morph has four kinds of faders. They all record and play back motion the same way, but they control different things.
+Morph has three fader types, plus spacers for layout. They all record and play back motion the same way.
 
-### Regular Fader
+### Standard Fader
 
-A single vertical slider. Maps to one parameter (or a stack of parameters via sections — see below).
+A single vertical slider mapped to one or more parameters. A standard fader can be split into **sections** — each slice of the travel controls a different parameter or behavior, with labeled zones. That's how one "Kick" fader can go from off, to a four-on-the-floor, to a driven, pitched-up pattern as you push it up.
 
-### Sectioned Fader
-
-A regular fader divided into **sections**, where each section of the slider range controls a different parameter. For example, the bottom third controls filter cutoff on synth A, and the top two-thirds controls filter cutoff on synth B. One physical fader, multiple destinations.
+![Sectioned faders on a drums page](images/page-drums.png)
 
 ### XY Fader (2D Pad)
 
-Two axes of control in one touch surface. Drag up/down for the Y parameter, left/right for the X parameter. When given more horizontal space, it becomes a full 2D pad with a crosshair.
+Two axes in one touch surface: drag vertically for Y, horizontally for X. Given more width, it becomes a full 2D pad with a crosshair. Both axes record and play back independently. A configurable center **dead zone** helps you hold center without drifting.
 
-Common use: X = pan, Y = volume. Or X = reverb dry/wet, Y = delay feedback. Both axes record and play back independently.
-
-A small **dead zone** in the center can be configured to help you hold center without drifting.
+![XY pads on a performance page](images/page-perform-xy.png)
 
 ### Range Fader
 
-Two thumbs on a single vertical track — a low handle and a high handle. The filled region between them represents the active range. Drag the band to shift both together; drag individual thumbs to change the range width.
+Two thumbs on one vertical track — a low handle and a high handle. The filled band between them is the active range: drag the band to move both, drag a thumb to resize. Useful for things like a filter's low/high band or constrained randomization ranges.
 
-Useful for frequency bands, EQ ranges, or any "from X to Y" parameter.
+Faders can also map to musical choices, not just amounts — root note, scale, chord — with labeled notches for each option:
 
-> 📸 *[Screenshot: All four fader types side by side]*
+![Note, scale, and chord faders](images/page-sound.png)
 
----
-
-## Video Jam Recording *(iOS Standalone only)*
-
-Tap the **camera button** to arm video recording. When you press play, Morph records a 9:16 portrait video of your fader grid along with the audio — ready for TikTok, Reels, or Shorts.
-
-The video captures:
-- Full audio mix (exactly what you hear)
-- Real-time animation of the fader grid
-
-When the transport stops, Morph saves the video to your Photos library. From there you can share it directly.
-
-Note: This feature is only available in the iOS Standalone app, not in AUv3 or macOS.
-
-> 📸 *[Screenshot: Camera button, and example video frame]*
+To create or reconfigure faders, see [The Board & Routing](board.md).
 
 ---
 
-## Importing and Exporting Kits
+## Editing Faders on the Stage
 
-**To share a kit** with someone else (or back it up):
-- Tap the kit name → Export → share via AirDrop, Files, or Messages
-- The kit is saved as a `.morph` file
+Tap the **pencil** in the right rail to enter edit mode. Every fader grows a drag handle (for reordering, including across pages) and a small config button that opens the fader's settings sheet — its label, color, response curve, device mappings, and sections.
 
-**To load a kit someone shared with you:**
-- Open the `.morph` file from Files app, email, or AirDrop
-- Morph opens automatically and loads it
+![Edit mode: drag handles and config buttons on every fader](images/edit-mode.png)
 
-Exported kits are self-contained — they include all sounds, fader layouts, patterns, and scenes. The only things not included are host-specific settings from a DAW session.
+![A fader's configuration sheet](images/fader-halfsheet.png)
 
-> 📸 *[Screenshot: Share sheet with .morph file]*
+The full mapping system — what ABS/REL means, adding parameters, connecting devices — is covered in [The Board & Routing](board.md).
+
+---
+
+## The Waveform Scope
+
+Settings has a **Waveform** toggle that overlays a live waveform visualization across the whole stage — handy for video recordings and simply for seeing what you're hearing.
+
+![Waveform scope overlay](images/waveform-scope.png)
+
+There's also **Note Pulse** (on by default): faders flash softly when the sequencer routed to them fires a note, so you can see the rhythm in the fader grid.
+
+![Note pulse lighting up a fader as its sequencer plays](images/note-pulse.png)
+
+---
+
+## Video Jam Recording *(iOS only)*
+
+On iOS, the **camera button** arms video recording. When you press play, Morph records a video of your fader grid along with the audio — ready for TikTok, Reels, or Shorts. When the transport stops, the video saves to your Photos library.
+
+Settings includes **Video Orientation** (vertical or horizontal) and a **Video Background** (light/dark) option.
 
 ---
 
 ## The Board
 
-The **Board** is an advanced view showing all of Morph's devices and how they connect. Think of it as the patch bay or signal flow diagram behind the fader grid.
+The **Board** (circuit icon, top-right rail) is the view behind the curtain: every device in the kit and how they connect.
 
-Devices are arranged in columns from left to right, following the signal path:
+![The Board](images/board.png)
 
-```
-Modulators → Faders → Sequencers → Synths → FX → Master
-```
+Devices flow left to right — **Modulators → Faders → Sequencers → Synths → Effects → Master** — with colored lines showing connections: cyan for MIDI, pink for audio, orange for modulation, green for fader control.
 
-| Column | What's Here |
-|--------|------------|
-| **Modulators** | LFOs, Envelopes, Gyroscope sensors |
-| **Faders** | Your pages of faders (collapsible by page) |
-| **Sequencers** | Euclidean, Chord, Turing Machine, Trigger |
-| **Synths** | PlaitsSynth, DroneSynth, 303, WeirdDrums, MIDI, etc. |
-| **FX** | Delay, Reverb, Sidechain Pump |
-| **Master** | Filter, Mixer, Tape, Compression, Limiter |
-
-Colored lines show what's connected to what:
-- **Cyan** — MIDI from sequencer to synth
-- **Pink** — audio from synth to master mixer
-- **Orange** — modulation from LFO/Envelope to a fader
-- **Green** — fader controlling a device parameter
-- **Purple** — FX send level from synth to delay/reverb
-
-Tap a device card to open its parameter panel. Tap a port (the small colored circle on a card) to start a connection, then tap a destination port to complete it.
-
-The Board is where you build the architecture of a kit: which sequencer triggers which synth, which LFO modulates which fader, how effects are routed.
-
-> 📸 *[Screenshot: Board view with connection lines visible across all columns]*
+This is where you build the architecture of a kit: which sequencer triggers which synth, which LFO moves which fader, how effects are fed. It gets its own page: [The Board & Routing](board.md).
 
 ---
 
 ## Where to Go Next
 
-Once you're comfortable with faders, recording, and scenes, explore:
+- **[Sounds & Modulators](devices.md)** — the six synth types and the LFO/Envelope/Gyroscope modulators
+- **[Sequencers](sequencers.md)** — Euclid, Trigger, Turing, and the Rameau chord engine
+- **[The Board & Routing](board.md)** — wiring, fader mapping, ABS/REL
+- **[Effects & Mixing](effects.md)** — delay, reverb, sidechain pump, and the master chain
+- **[MIDI](midi.md)** — external controllers, MIDI learn, and driving hardware from Morph
 
-- **Modulators** — LFOs and envelopes that move faders automatically
-- **Chord Sequencer** — a full progression builder with voice leading and arpeggiator
-- **Turing Machine** — generative sequences that mutate over time
-- **MIDI Learn** — map external MIDI controllers to any fader
-
-The best way to learn is to open a factory kit, press play, and start touching things.
+The best way to learn is still the simplest: open a factory kit, press play, and start touching things.
