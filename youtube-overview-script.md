@@ -69,9 +69,9 @@ And my favorite button in the entire app:
 
 **Time Jump.** Morph is always quietly remembering what your hands just did. You make a move you love — and *after* you've made it, you tap this button, and Morph reaches back in time and keeps it. You never lose the take. Play first, commit later.
 
-[ACTION: Tap Freeze (snowflake) — faders hold still, music keeps going. Tap again — motion resumes.]
+[ACTION: Tap the side Freeze (snowflake) to enter freeze mode — snowflakes appear on every fader. Tap one fader's snowflake — it holds still while the others keep moving. Tap it again — it resumes.]
 
-Freeze pauses all that motion in place — the beat keeps running — and releases it on tap. Instant tension and release.
+Freeze lets you lock individual faders in place — the beat keeps running, the other faders keep moving — and you release each one on tap. Instant tension and release, exactly where you want it.
 
 ---
 
@@ -170,7 +170,7 @@ See you in the next one.
 - [ ] Kick sectioned-fader push (silence → 4/4 → driven)
 - [ ] REC layering ×2–3 faders, step indicator filling
 - [ ] Time Jump: expressive move → tap → loop (replay twice, it's the wow)
-- [ ] Freeze on/off under a running beat
+- [ ] Freeze mode: snowflakes on faders, lock one fader while others keep moving
 - [ ] Scene tour + queued switch landing on the bar + "+" duplicate
 - [ ] Board pan; Euclid sheet; Rameau banks; tap-to-connect
 - [ ] LFO wired to a fader → fader visibly moves on its own

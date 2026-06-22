@@ -124,11 +124,11 @@ These two buttons give you precise control over motion playback.
 
 ### Freeze
 
-**Freeze** (snowflake) pauses all motion playback without stopping the transport. Sequencers and audio keep running, but faders hold still. Tap again to resume.
+**Freeze** lets you lock individual faders in place while everything else keeps moving. Tap the side **Freeze** button (snowflake) to enter freeze mode — a small snowflake button appears in the top-left corner of every fader. Tap a fader's snowflake to freeze just that fader at its current value; tap it again to unfreeze. Frozen faders hold their position and ignore motion and modulation, while the transport, sequencers, and all unfrozen faders keep running.
 
 ![Freeze active](images/freeze-active.png)
 
-It's the DJ move: hold a filter where it is while the beat plays on. **Long-press while frozen** to commit the frozen values as the new saved positions.
+It's the DJ move: hold a filter where it is while the beat plays on. Tap the side Freeze button again to unfreeze everything at once, or **long-press it** to commit the frozen values as the faders' new saved positions.
 
 ### Time Jump
 

@@ -59,7 +59,7 @@ Morph has a lot more under the hood. Once you're comfortable with the basics:
 - **Pages** — organize faders across multiple named tabs ([Full Guide](intro.md))
 - **HOLD** — audition fader moves without committing them
 - **Time Jump** — retroactively capture a movement you liked but didn't record
-- **Freeze** — pause all fader motion while the audio keeps playing
+- **Freeze** — enter freeze mode, then tap a fader's snowflake to lock just that fader while the rest keep moving
 - **The Board** — a full signal-flow view where you can see and rewire how sequencers, synths, effects, and modulators connect ([The Board & Routing](board.md))
 - **Modulators** — LFOs and envelopes that move faders automatically ([Sounds & Modulators](devices.md))
 - **Sequencers** — Euclidean rhythms, generative melodies, and a full chord progression engine ([Sequencers](sequencers.md))
