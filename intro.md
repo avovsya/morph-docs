@@ -111,10 +111,11 @@ This gives you a bird's-eye view of where your recordings live. Sparse dots mean
 
 The two buttons at the top of the left rail change the loop length:
 
-- **Halve** (orange collapse arrows) — cuts the loop in half. Data beyond the new endpoint is discarded.
-- **Double** (green expand arrows) — short press doubles the loop length, keeping existing data and adding empty space. **Long press** doubles the loop and clears the newly exposed half.
+- **Halve** (orange collapse arrows) — cuts the loop in half. Data beyond the new endpoint is hidden, not deleted — doubling back restores it.
+- **Double** — short press doubles the loop length, leaving the new half **empty**; a previously halved loop's old tail comes back untouched instead. **Long press** doubles and clears the old tail first (guaranteed blank).
+- **Duplicate** (⧉) — doubles the loop **and copies** the current motion into the new half, overwriting any old tail — pressing it is the intent to copy.
 
-Use these to change the feel fast: halving creates tight, repetitive patterns; doubling gives you room to build a longer arc. Loop length is measured in 16th-note steps (8, 16, 32, or 64).
+Use these to change the feel fast: halving creates tight, repetitive patterns; doubling gives you room to build a longer arc. Loop length is measured in 16th-note steps (8, 16, 32, 64, or 128 — up to 8 bars).
 
 ---
 
